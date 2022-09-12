@@ -2,12 +2,9 @@ const { template } = require('@babel/core')
 
 function concatArray(array1, array2) {
   //code here
-  for (const value of array1) {
-    if (value == null || value == undefined) {return array2}
-  }
-  for (const value of array2) {
-    if (value == null || value == undefined) {return array1}
-  }
-  return array1.concat(array2)
+  if((array1 == null || undefined) && (array2 == null || undefined)) return undefined
+  else if ((array1 == null||undefined) && (array2 != null||undefined)) return array2
+  else if ((array2 == null||undefined) && (array1 != null||undefined)) return array1
+  else return array1.concat(array2)
 }
 module.exports = concatArray
